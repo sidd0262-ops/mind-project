@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마음프로젝트 | 생계를 넘어 마음을 돌봅니다</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <style>
+        /* 기본 초기화 및 폰트 설정 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            color: #1d1d1f;
+            background-color: #ffffff;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .highlight { color: #0071e3; }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 120px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        nav {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f5f5f7;
+        }
+        nav .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #1d1d1f;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 160px 0 120px;
+        }
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            color: #86868b;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .desc {
+            font-size: 1.2rem;
+            color: #86868b;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: #fbfbfd;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: left;
+        }
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1d1d1f;
+        }
+        .card p {
+            font-size: 1rem;
+            color: #515154;
+        }
+
+        .team-info {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #515154;
+        }
+
+        .contact-box {
+            background: #0071e3;
+            color: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        .contact-box h2 {
+            color: white;
+        }
+        .contact-box p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        .contact-info {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .contact-info span {
+            display: block;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1.2rem; }
+            section { padding: 80px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <div class="logo">마음프로젝트</div>
+            <a href="#contact">문의 및 후원</a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <section class="hero visible">
+            <h1>생계를 넘어,<br><span class="highlight">마음</span>을 돌봅니다.</h1>
+            <p>탈북민, 다문화 가정, 그리고 모든 이주민을 위한 전문 심리 지원</p>
+        </section>
+    </div>
+
+    <div class="container">
+        <section id="mission">
+            <h2>좋은마음연구소 <span class="highlight">마음프로젝트팀</span></h2>
+            <p class="desc">기독교 신앙을 바탕으로 심리학을 전공한 전문가들이 모였습니다.</p>
+            <div class="team-info">
+                <p>권이현 박사(슈퍼바이저)를 중심으로 상담심리 석사, 중독센터 팀장 등 상담 전문가로 구성되어 있습니다.</p>
+                <br>
+                <p><strong>우리의 목표</strong><br>탈북민, 선교사 및 선교사 자녀, 다문화 청소년과 가정, 그리고 국내외 다양한 이주민들을 대상으로<br>부부 갈등, 자녀 양육, 정서적 고립, 중독 등 '마음의 문제'에 대한 전문적인 심리적 개입을 제공하여 빈틈을 메웁니다.</p>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <section id="programs">
+            <h2>놀이처럼 즐겁게,<br><span class="highlight">마음은 단단하게.</span></h2>
+            <p class="desc">비폭력대화 훈련 및 다문화 심리 지원 프로그램</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>비폭력대화 훈련</h3>
+                    <p>개인이 가진 차이가 의사소통에 미치는 영향을 경험하고, 다름을 수용하며 서로의 마음을 연결하는 건강한 대화 방법을 훈련합니다.</p>
+                </div>
+                <div class="card">
+                    <h3>문화적응 태도 탐색</h3>
+                    <p>다양한 문화적응 단계와 모델을 이해하고, 현재 나와 자녀가 어느 심리적 위치에 있는지 객관적으로 확인하여 적응 수준의 차이를 파악합니다.</p>
+                </div>
+                <div class="card">
+                    <h3>가치관 및 심리적 자원 탐색</h3>
+                    <p>새로운 환경에서의 위기와 어려움을 극복할 수 있도록, 나 자신과 가족이 가진 내면의 가치관과 긍정적인 지지 자원을 깊이 있게 찾아봅니다.</p>
+                </div>
+                <div class="card">
+                    <h3>가족 지지망 형성</h3>
+                    <p>부모와 자녀 간의 적응 속도 차이를 인정하고, 청소년 자녀의 올바른 문화적응을 돕는 든든한 보호자이자 지지자가 되기 위한 실천 방법을 나눕니다.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <section id="history">
+            <h2>꾸준히 이어온 <span class="highlight">마음의 발자취</span></h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>2025.07</h3>
+                    <p>중앙아시아 이주민 문화적응 프로그램</p>
+                </div>
+                <div class="card">
+                    <h3>2024.07</h3>
+                    <p>탈북 청년 가치 프로그램</p>
+                </div>
+                <div class="card">
+                    <h3>2018.07</h3>
+                    <p>선교사 자녀 정체성 및 소속감 증진</p>
+                </div>
+                <div class="card">
+                    <h3>2018.02</h3>
+                    <p>탈북청소년 분노조절 프로그램</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <section id="contact">
+            <div class="contact-box">
+                <h2>따뜻한 연대가 필요합니다.</h2>
+                <p>팀원들이 이동비, 숙박비 등 모든 운영비를 자비로 감당하고 있습니다.<br>지친 이주민과 다문화 가정에 환대와 사랑을 느낄 수 있는 풍성한 선물(재정/물품) 마련을 위해 후원이 필요합니다.</p>
+                
+                <div class="contact-info">
+                    <span>마음프로젝트 김주석 팀장</span>
+                    <span>📞 010-6754-7611</span>
+                    <span>✉️ daamuunhwaa@gmail.com</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
