@@ -24,16 +24,15 @@
             padding: 0 20px;
         }
 
+        /* 오류 없는 안전한 나타나기 애니메이션 */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         section {
             padding: 120px 0;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-        
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
+            animation: fadeUp 1.2s ease forwards; /* 접속 시 무조건 나타나도록 설정 */
         }
 
         /* 네비게이션 */
@@ -117,23 +116,21 @@
             position: relative;
             margin-top: 80px;
             padding: 20px 0;
-            overflow-x: auto; /* 모바일에서 부드럽게 가로 스크롤 가능 */
+            overflow-x: auto;
             -webkit-overflow-scrolling: touch;
         }
-        /* 스크롤바를 숨겨서 디자인을 더 순수하게 유지 */
         .timeline-wrapper::-webkit-scrollbar {
             display: none;
         }
         .timeline {
             display: flex;
             position: relative;
-            min-width: 840px; /* 가로 라인이 유지되도록 최소 너비 고정 */
+            min-width: 840px;
             justify-content: space-between;
         }
-        /* 가로 일자 라인 */
         .timeline-line {
             position: absolute;
-            top: 6px; /* 미니멀 점의 중심에 가로선 맞춤 */
+            top: 6px;
             left: 0;
             right: 0;
             height: 2px;
@@ -147,7 +144,6 @@
             text-align: center;
             padding: 0 20px;
         }
-        /* 애플 블루 컬러의 미니멀 점 */
         .timeline-dot {
             width: 14px;
             height: 14px;
@@ -221,7 +217,7 @@
     </div>
 
     <div class="container">
-        <section class="hero visible">
+        <section class="hero">
             <h1>문화를 넘어<br><span class="highlight">마음</span>을 돌봅니다.</h1>
             <p>탈북민, 다문화 가정, 그리고 모든 이주민을 위한 전문 심리 지원</p>
         </section>
@@ -284,3 +280,37 @@
                         <div class="timeline-date">2018.07</div>
                         <div class="timeline-content">선교사 자녀 정체성 및 소속감 증진</div>
                     </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2024.07</div>
+                        <div class="timeline-content">탈북 청년 가치 프로그램</div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2025.07</div>
+                        <div class="timeline-content">중앙아시아 이주민 문화적응 프로그램</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <section id="contact">
+            <div class="contact-box">
+                <h2>따뜻한 연대가 필요합니다.</h2>
+                <p>팀원들이 이동비, 숙박비 등 모든 운영비를 자비로 감당하고 있습니다.<br>지친 이주민과 다문화 가정에 환대와 사랑을 느낄 수 있는 풍성한 선물(재정/물품) 마련을 위해 후원이 필요합니다.</p>
+                
+                <div class="contact-info">
+                    <span>마음프로젝트 김주석 팀장</span>
+                    <span>📞 010-6754-7611</span>
+                    <span>✉️ daamuunhwaa@gmail.com</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
