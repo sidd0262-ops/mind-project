@@ -6,7 +6,7 @@
     <title>마음프로젝트 | 문화를 넘어 마음을 돌봅니다</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <style>
-        /* 기본 초기화 및 폰트 설정 */
+        /* 기본 초기화 및 폰트 설정 (오류 방지를 위해 hidden 관련 속성 전면 제거) */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
@@ -24,15 +24,10 @@
             padding: 0 20px;
         }
 
-        /* 오류 없는 안전한 나타나기 애니메이션 */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        /* 모든 섹션은 상시 노출되도록 안전하게 설정 */
         section {
-            padding: 120px 0;
-            animation: fadeUp 1.2s ease forwards; /* 접속 시 무조건 나타나도록 설정 */
+            padding: 100px 0;
+            display: block;
         }
 
         /* 네비게이션 */
@@ -58,13 +53,14 @@
         /* 히어로 섹션 */
         .hero {
             text-align: center;
-            padding: 160px 0 120px;
+            padding: 140px 0 100px;
         }
         .hero h1 {
             font-size: 4.5rem;
             font-weight: 700;
             letter-spacing: -2px;
             margin-bottom: 20px;
+            line-height: 1.2;
         }
         .hero p {
             font-size: 1.5rem;
@@ -111,68 +107,77 @@
             color: #515154;
         }
 
-        /* 애플 감성의 초깔끔 가로형 일자 라인 타임라인 스타일 */
-        .timeline-wrapper {
-            position: relative;
-            margin-top: 80px;
-            padding: 20px 0;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-        .timeline-wrapper::-webkit-scrollbar {
-            display: none;
-        }
-        .timeline {
-            display: flex;
-            position: relative;
-            min-width: 840px;
-            justify-content: space-between;
-        }
-        .timeline-line {
-            position: absolute;
-            top: 6px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: #e5e5ea;
-            z-index: 1;
-        }
-        .timeline-item {
-            position: relative;
-            z-index: 2;
-            flex: 1;
-            text-align: center;
-            padding: 0 20px;
-        }
-        .timeline-dot {
-            width: 14px;
-            height: 14px;
-            background-color: #0071e3;
-            border: 3px solid #ffffff;
-            border-radius: 50%;
-            margin: 0 auto 24px;
-            box-shadow: 0 0 0 1px #e5e5ea;
-            box-sizing: border-box;
-        }
-        .timeline-date {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #1d1d1f;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
-        }
-        .timeline-content {
-            font-size: 0.95rem;
-            color: #86868b;
-            word-break: keep-all;
-            line-height: 1.5;
-        }
-
         /* 팀 소개 */
         .team-info {
             text-align: center;
             font-size: 1.1rem;
             color: #515154;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* [디자인 변경] 애플 감성의 초깔끔 세로형 일자 라인 타임라인 */
+        .timeline-v {
+            position: relative;
+            max-width: 700px;
+            margin: 60px auto 0;
+            padding: 20px 0;
+        }
+        /* 가운데를 관통하는 정갈한 세로 단선 */
+        .timeline-v::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 1px;
+            background-color: #e5e5ea;
+            transform: translateX(-50%);
+        }
+        .timeline-v-item {
+            position: relative;
+            width: 50%;
+            margin-bottom: 50px;
+            box-sizing: border-box;
+        }
+        /* 홀수 번째 항목 (왼쪽 배치, 우측 정렬) */
+        .timeline-v-item:nth-child(odd) {
+            left: 0;
+            padding-right: 40px;
+            text-align: right;
+        }
+        /* 짝수 번째 항목 (오른쪽 배치, 좌측 정렬) */
+        .timeline-v-item:nth-child(even) {
+            left: 50%;
+            padding-left: 40px;
+            text-align: left;
+        }
+        /* 세로선 위에 얹어질 미니멀한 블루 포인트 원형 점 */
+        .timeline-v-dot {
+            position: absolute;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            background-color: #0071e3;
+            border-radius: 50%;
+            z-index: 2;
+        }
+        .timeline-v-item:nth-child(odd) .timeline-v-dot {
+            right: -5px;
+        }
+        .timeline-v-item:nth-child(even) .timeline-v-dot {
+            left: -5px;
+        }
+        .timeline-v-date {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 6px;
+        }
+        .timeline-v-content {
+            font-size: 1rem;
+            color: #86868b;
+            word-break: keep-all;
         }
 
         /* 후원 섹션 */
@@ -200,10 +205,27 @@
             margin-top: 10px;
         }
 
+        /* 모바일 반응형 (화면이 좁아지면 세로선을 왼쪽으로 밀어 정렬) */
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem; }
             .hero p { font-size: 1.2rem; }
-            section { padding: 80px 0; }
+            section { padding: 60px 0; }
+            
+            .timeline-v::before {
+                left: 10px;
+            }
+            .timeline-v-item {
+                width: 100%;
+                padding-left: 35px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+                left: 0 !important;
+                margin-bottom: 40px;
+            }
+            .timeline-v-dot {
+                left: 5px !important;
+                right: auto !important;
+            }
         }
     </style>
 </head>
@@ -265,52 +287,15 @@
         <section id="history">
             <h2>꾸준히 이어온 <span class="highlight">마음의 발자취</span></h2>
             
-            <div class="timeline-wrapper">
-                <div class="timeline">
-                    <div class="timeline-line"></div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2018.02</div>
-                        <div class="timeline-content">탈북청소년 분노조절 프로그램</div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2018.07</div>
-                        <div class="timeline-content">선교사 자녀 정체성 및 소속감 증진</div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2024.07</div>
-                        <div class="timeline-content">탈북 청년 가치 프로그램</div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2025.07</div>
-                        <div class="timeline-content">중앙아시아 이주민 문화적응 프로그램</div>
-                    </div>
+            <div class="timeline-v">
+                <div class="timeline-v-item">
+                    <div class="timeline-v-dot"></div>
+                    <div class="timeline-v-date">2018.02</div>
+                    <div class="timeline-v-content">탈북청소년 분노조절 프로그램</div>
                 </div>
-            </div>
-        </section>
-    </div>
-
-    <div class="container">
-        <section id="contact">
-            <div class="contact-box">
-                <h2>따뜻한 연대가 필요합니다.</h2>
-                <p>팀원들이 이동비, 숙박비 등 모든 운영비를 자비로 감당하고 있습니다.<br>지친 이주민과 다문화 가정에 환대와 사랑을 느낄 수 있는 풍성한 선물(재정/물품) 마련을 위해 후원이 필요합니다.</p>
                 
-                <div class="contact-info">
-                    <span>마음프로젝트 김주석 팀장</span>
-                    <span>📞 010-6754-7611</span>
-                    <span>✉️ daamuunhwaa@gmail.com</span>
+                <div class="timeline-v-item">
+                    <div class="timeline-v-dot"></div>
+                    <div class="timeline-v-date">2018.07</div>
+                    <div class="timeline-v-content">선교사 자녀 정체성 및 소속감 증진 프로그램</div>
                 </div>
-            </div>
-        </section>
-    </div>
-
-</body>
-</html>
