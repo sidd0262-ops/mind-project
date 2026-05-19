@@ -112,24 +112,30 @@
             color: #515154;
         }
 
-        /* 가로형 연혁 (Timeline) 스타일 */
+        /* 애플 감성의 초깔끔 가로형 일자 라인 타임라인 스타일 */
         .timeline-wrapper {
             position: relative;
-            margin-top: 60px;
-            overflow-x: auto;
-            padding-bottom: 20px;
+            margin-top: 80px;
+            padding: 20px 0;
+            overflow-x: auto; /* 모바일에서 부드럽게 가로 스크롤 가능 */
+            -webkit-overflow-scrolling: touch;
+        }
+        /* 스크롤바를 숨겨서 디자인을 더 순수하게 유지 */
+        .timeline-wrapper::-webkit-scrollbar {
+            display: none;
         }
         .timeline {
             display: flex;
-            justify-content: space-between;
             position: relative;
-            min-width: 800px;
+            min-width: 840px; /* 가로 라인이 유지되도록 최소 너비 고정 */
+            justify-content: space-between;
         }
+        /* 가로 일자 라인 */
         .timeline-line {
             position: absolute;
-            top: 11px;
-            left: 50px;
-            right: 50px;
+            top: 6px; /* 미니멀 점의 중심에 가로선 맞춤 */
+            left: 0;
+            right: 0;
             height: 2px;
             background-color: #e5e5ea;
             z-index: 1;
@@ -139,27 +145,31 @@
             z-index: 2;
             flex: 1;
             text-align: center;
+            padding: 0 20px;
         }
+        /* 애플 블루 컬러의 미니멀 점 */
         .timeline-dot {
-            width: 24px;
-            height: 24px;
+            width: 14px;
+            height: 14px;
             background-color: #0071e3;
-            border: 4px solid #ffffff;
+            border: 3px solid #ffffff;
             border-radius: 50%;
-            margin: 0 auto 20px;
+            margin: 0 auto 24px;
+            box-shadow: 0 0 0 1px #e5e5ea;
             box-sizing: border-box;
         }
         .timeline-date {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: #1d1d1f;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
         }
         .timeline-content {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #86868b;
-            padding: 0 15px;
             word-break: keep-all;
+            line-height: 1.5;
         }
 
         /* 팀 소개 */
@@ -212,4 +222,65 @@
 
     <div class="container">
         <section class="hero visible">
-            <h1>문화를 넘어<br><span class="highlight
+            <h1>문화를 넘어<br><span class="highlight">마음</span>을 돌봅니다.</h1>
+            <p>탈북민, 다문화 가정, 그리고 모든 이주민을 위한 전문 심리 지원</p>
+        </section>
+    </div>
+
+    <div class="container">
+        <section id="mission">
+            <h2>좋은마음연구소 <span class="highlight">마음프로젝트팀</span></h2>
+            <p class="desc">기독교 신앙을 바탕으로 심리학을 전공한 전문가들이 모였습니다.</p>
+            <div class="team-info">
+                <p>권이현 박사(슈퍼바이저)를 중심으로 상담심리 석사, 중독센터 팀장 등 상담 전문가로 구성되어 있습니다.</p>
+                <br>
+                <p><strong>우리의 목표</strong><br>탈북민, 선교사 및 선교사 자녀, 다문화 청소년과 가정, 그리고 국내외 다양한 이주민들을 대상으로<br>부부 갈등, 자녀 양육, 정서적 고립, 중독 등 '마음의 문제'에 대한 전문적인 심리적 개입을 제공하여 빈틈을 메웁니다.</p>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <section id="programs">
+            <h2>놀이처럼 즐겁게,<br><span class="highlight">마음은 단단하게.</span></h2>
+            <p class="desc">비폭력대화 훈련 및 다문화 심리 지원 프로그램</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>비폭력대화 훈련</h3>
+                    <p>개인이 가진 차이가 의사소통에 미치는 영향을 경험하고, 다름을 수용하며 서로의 마음을 연결하는 건강한 대화 방법을 훈련합니다.</p>
+                </div>
+                <div class="card">
+                    <h3>문화적응 태도 탐색</h3>
+                    <p>다양한 문화적응 단계와 모델을 이해하고, 현재 나와 자녀가 어느 심리적 위치에 있는지 객관적으로 확인하여 적응 수준의 차이를 파악합니다.</p>
+                </div>
+                <div class="card">
+                    <h3>가치관 및 심리적 자원 탐색</h3>
+                    <p>새로운 환경에서의 위기와 어려움을 극복할 수 있도록, 나 자신과 가족이 가진 내면의 가치관과 긍정적인 지지 자원을 깊이 있게 찾아봅니다.</p>
+                </div>
+                <div class="card">
+                    <h3>가족 지지망 형성</h3>
+                    <p>부모와 자녀 간의 적응 속도 차이를 인정하고, 청소년 자녀의 올바른 문화적응을 돕는 든든한 보호자이자 지지자가 되기 위한 실천 방법을 나눕니다.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <section id="history">
+            <h2>꾸준히 이어온 <span class="highlight">마음의 발자취</span></h2>
+            
+            <div class="timeline-wrapper">
+                <div class="timeline">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2018.02</div>
+                        <div class="timeline-content">탈북청소년 분노조절 프로그램</div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2018.07</div>
+                        <div class="timeline-content">선교사 자녀 정체성 및 소속감 증진</div>
+                    </div>
