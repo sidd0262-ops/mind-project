@@ -212,44 +212,66 @@
             display: none;
         }
 
-        /* 후원 섹션 (투명도 디자인 완벽 적용) */
+        /* 후원 섹션 (투명도 디자인 40%, 50% 적용 및 비율 깨짐 방지) */
         .contact-box {
-            /* 큰 도형: 틸 블루(#22636d = rgb 34, 99, 109) 투명도 40% (0.4) 적용 */
-            background-color: rgba(34, 99, 109, 0.4);
-            /* 배경이 밝아졌으므로 하얀색 글씨 대신 진한 그레이로 가독성 확보 */
+            background-color: rgba(34, 99, 109, 0.4); /* 큰 배경 투명도 40% */
             color: #1d1d1f; 
             border-radius: 20px;
             padding: 80px 40px;
             text-align: center;
+            box-sizing: border-box;
+            width: 100%;
         }
         .contact-box h2 {
-            color: #1d1d1f; /* 제목도 어둡게 변경 */
+            color: #1d1d1f; 
         }
         .contact-box p {
             font-size: 1.1rem;
             opacity: 0.9;
             margin-bottom: 40px;
         }
+        
+        /* 안쪽 작은 투명 박스 (Flexbox로 구조화하여 모바일 깨짐 방지) */
         .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px; /* 줄 간격 */
+            
+            background-color: rgba(255, 255, 255, 0.5); /* 안쪽 배경 투명도 50% */
+            color: #1d1d1f;
+            border-radius: 15px;
+            padding: 40px;
+            
+            width: 100%;
+            max-width: 500px; /* 데스크탑에서는 너무 넓어지지 않게 고정 */
+            margin: 0 auto;
+            box-sizing: border-box;
+            
             font-size: 1.2rem;
             font-weight: 600;
-            display: inline-block;
-            /* 작은 도형: 하얀색(rgb 255, 255, 255) 투명도 50% (0.5) 적용 */
-            background-color: rgba(255, 255, 255, 0.5);
-            color: #1d1d1f; /* 텍스트 어둡게 유지 */
-            padding: 30px 50px;
-            border-radius: 15px;
         }
         .contact-info span {
-            display: block;
-            margin-top: 15px;
+            display: inline-block;
+            word-break: break-word; /* 긴 텍스트 자연스럽게 처리 */
         }
 
+        /* 태블릿 & 모바일 환경 (패드, 스마트폰 비율 대응) */
         @media (max-width: 768px) {
             .hero h1 { font-size: 3.2rem; }
             .hero p { font-size: 1.2rem; }
             section { padding: 120px 0; }
             .swipe-hint { display: block; }
+            
+            /* 모바일 좁은 화면에서 연락처 박스 여백 및 글씨 크기 조정 */
+            .contact-box {
+                padding: 60px 20px; /* 바깥 여백 축소 */
+            }
+            .contact-info {
+                padding: 30px 15px; /* 안쪽 여백 축소하여 이메일 공간 확보 */
+                font-size: 1.05rem; /* 폰트 크기 미세 조정 */
+            }
         }
     </style>
 </head>
